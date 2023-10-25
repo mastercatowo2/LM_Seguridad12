@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name" translatable="false">LM_Seguridad</string>
+    <string name="rut" translatable="false">Rut</string>
+    <string name="contrasena" translatable="false">Contraseña</string>
+    <string name="btnIngresar" translatable="false">Ingresar</string>
+
+    //Menu
+    <string name="chat" translatable="false">Chat</string>
+    <string name="mallaDeTurnos" translatable="false">Malla de turnos </string>
+    <string name="verApartadoDeFotosyVideos" translatable="false">Ver apartados de fotos y videos</string>
+    <string name="llamarCarabineros" translatable="false">Llamar a Carabineros</string>
+    <string name="ingresarMallaDeTurnos" translatable="false">Ingresar malla de turnos</string>
+    <string name="registroDeIncidentes" translatable="false">Registro de incidentes</string>
+    <string name="registroDeVisitas" translatable="false">Registro de visitas</string>
+
+    //Fragmento
+    <string name="Perfil" translatable="false"> Perfil </string>
+    <string name="FotoP" translatable="false">Toma una foto para el perfil</string>
+    <string name="Informacion" translatable="false"> Información </string>
+    <string name="Terminos" translatable="false">Esta aplicación mantendra seguros sus datos, ya sea de inicio
+    de sesión, como otro tipo de usos</string>
+
+    //Inicio
+    <string name="bienvenida" translatable="false">Bienvenidos a LM Seguridad Privada</string>
+
+    <string name="seguridad" translatable="false">Tú seguridad, nuestra prioridad</string>
+    <string name="title_activity_mallas_de_turnos" translatable="false">MallasDeTurnosActivity</string>
+
+    <string name="registro_incidentes" translatable="false">Registro de Incidentes</string>
+    <string name="etiqueta_magnitud" translatable="false">Magnitud (1-7):</string>
+    <string name="etiqueta_comentarios" translatable="false">Comentarios:</string>
+    <string name="btn_registrar" translatable="false">Registrar Incidente</string>
+    <string name="correo">correo</string>
+    <string name="Correo">Correo</string>
+
+
+</resources>

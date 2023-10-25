@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "809520597972",
+    "project_id": "lm-seguridad",
+    "storage_bucket": "lm-seguridad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809520597972:android:6968e063239631129be441",
+        "android_client_info": {
+          "package_name": "com.example.lm_seguridad"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJo0ZUjC-tF1047QG4csSH1A2fbY2qcY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
