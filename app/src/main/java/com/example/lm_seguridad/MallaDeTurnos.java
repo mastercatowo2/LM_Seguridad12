@@ -1,3 +1,5 @@
+package com.example.lm_seguridad;
+
 public class MallaDeTurnos {
     private String nombre;
     private String horario;

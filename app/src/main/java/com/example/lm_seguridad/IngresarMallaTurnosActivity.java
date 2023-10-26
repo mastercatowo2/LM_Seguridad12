@@ -1,4 +1,3 @@
-// IngresarMallaTurnosActivity.java
 package com.example.lm_seguridad;
 
 import android.os.Bundle;
@@ -6,14 +5,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class IngresarMallaTurnosActivity extends AppCompatActivity {
     private EditText nombreTurnoEditText;
-    private EditText horarioTurnoEditText;
+    private Spinner diaSpinner;
     private Spinner estadoTurnoSpinner;
-    private boolean esAdministrador = true; // Ajusta según el usuario
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,26 +21,34 @@ public class IngresarMallaTurnosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ingresar_malla_turnos);
 
         nombreTurnoEditText = findViewById(R.id.nombreTurnoEditText);
-        horarioTurnoEditText = findViewById(R.id.horarioTurnoEditText);
+        diaSpinner = findViewById(R.id.diaSpinner);
         estadoTurnoSpinner = findViewById(R.id.estadoTurnoSpinner);
 
-        if (!esAdministrador) {
-            // Muestra un mensaje de error si el usuario no es administrador.
-            Toast.makeText(this, "No tienes permisos suficientes", Toast.LENGTH_SHORT).show();
-            finish(); // Cierra la actividad
-        }
+        // Obtén la referencia de la base de datos
+        mDatabase = FirebaseDatabase.getInstance().getReference("mallas_turno");
     }
 
     public void guardarMallaDeTurnos(View view) {
-        if (esAdministrador) {
-            String nombreTurno = nombreTurnoEditText.getText().toString();
-            String horarioTurno = horarioTurnoEditText.getText().toString();
-            String estadoTurno = estadoTurnoSpinner.getSelectedItem().toString();
+        String nombreTurno = nombreTurnoEditText.getText().toString();
+        String dia = diaSpinner.getSelectedItem().toString();
+        String estadoTurno = estadoTurnoSpinner.getSelectedItem().toString();
 
-            // Realiza la validación de datos y envía la información a tu fuente de datos o base de datos.
-            // Puedes utilizar Firebase Realtime Database, SQLite, u otro método de almacenamiento.
-        } else {
-            Toast.makeText(this, "No tienes permisos suficientes", Toast.LENGTH_SHORT).show();
+        // Validación de datos (puedes agregar más validaciones según tus necesidades)
+        if (nombreTurno.isEmpty()) {
+            Toast.makeText(this, "Por favor, ingresa el nombre del turno", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        // Genera un ID único para la malla de turnos
+        String mallaId = mDatabase.push().getKey();
+
+        // Crea un objeto Turno con los datos
+        Turno turno = new Turno(nombreTurno, dia, estadoTurno.equals("Turno"));
+
+        // Guarda la malla de turnos en la base de datos bajo el nodo "mallas_turno" con el ID generado
+        mDatabase.child(mallaId).setValue(turno);
+
+        // Muestra un mensaje de éxito
+        Toast.makeText(this, "Malla de turnos guardada correctamente", Toast.LENGTH_SHORT).show();
     }
 }

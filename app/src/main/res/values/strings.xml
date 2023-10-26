@@ -30,8 +30,8 @@
     <string name="etiqueta_magnitud" translatable="false">Magnitud (1-7):</string>
     <string name="etiqueta_comentarios" translatable="false">Comentarios:</string>
     <string name="btn_registrar" translatable="false">Registrar Incidente</string>
-    <string name="correo">correo</string>
-    <string name="Correo">Correo</string>
+    <string name="correo" translatable="false">correo</string>
+    <string name="Correo" translatable="false">Correo</string>
 
 
 </resources>

@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -36,20 +34,21 @@
             android:layout_height="wrap_content"
             android:hint="Nombre del día" />
 
-        <EditText
-            android:id="@+id/horarioTurnoEditText"
+        <Spinner
+            android:id="@+id/diaSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/nombreTurnoEditText"
             android:layout_marginTop="16dp"
-            android:hint="Horario del turno" />
+            android:entries="@array/dias_semana" />
 
         <Spinner
             android:id="@+id/estadoTurnoSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/horarioTurnoEditText"
-            android:layout_marginTop="16dp" />
+            android:layout_below="@id/diaSpinner"
+            android:layout_marginTop="16dp"
+            android:entries="@array/estado_turno_values"/>
 
         <Button
             android:id="@+id/buttonGuardarMallaTurnos"
@@ -61,4 +60,3 @@
             android:text="Guardar Malla de Turnos" />
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-

@@ -7,13 +7,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistroVisitasActivity extends AppCompatActivity {
     private EditText editTextNombre;
     private EditText editTextRut;
     private Button buttonGuardarVisita;
-    private FirebaseFirestore db;
+    private DatabaseReference databaseReference;
     private FirebaseAuth auth;
 
     @Override
@@ -24,8 +25,10 @@ public class RegistroVisitasActivity extends AppCompatActivity {
         editTextNombre = findViewById(R.id.editTextNombre);
         editTextRut = findViewById(R.id.editTextRut);
         buttonGuardarVisita = findViewById(R.id.buttonGuardarVisita);
-        db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
+
+        // Obtén una referencia a la ubicación en Firebase Realtime Database donde se guardarán las visitas
+        databaseReference = FirebaseDatabase.getInstance().getReference("visitas");
 
         buttonGuardarVisita.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,10 +54,12 @@ public class RegistroVisitasActivity extends AppCompatActivity {
         // Crear un objeto para la visita
         Visita visita = new Visita(nombre, rut, userId);
 
-        // Guardar la visita en Firebase Firestore
-        db.collection("visitas")
-                .add(visita)
-                .addOnSuccessListener(documentReference -> {
+        // Genera una nueva clave para la visita en la base de datos
+        String visitaKey = databaseReference.push().getKey();
+
+        // Guardar la visita en Firebase Realtime Database utilizando la clave generada
+        databaseReference.child(visitaKey).setValue(visita)
+                .addOnSuccessListener(aVoid -> {
                     Toast.makeText(this, "Visita guardada exitosamente.", Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {

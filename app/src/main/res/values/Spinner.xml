@@ -1,0 +1,4 @@
+<resources>
+    <string name="descanso" translatable="false">Descanso</string>
+    <string name="turno" translatable="false">Turno</string>
+</resources>
