@@ -26,6 +26,9 @@
         android:theme="@style/Theme.LM_Seguridad"
         tools:targetApi="tiramisu"
         android:enableOnBackInvokedCallback="true">
+        <activity
+            android:name=".MediaGalleryActivity"
+            android:exported="false" />
 
         <activity
             android:name=".IngresarMallaTurnosActivity"

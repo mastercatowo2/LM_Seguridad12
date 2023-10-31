@@ -1,32 +1,32 @@
-<menu xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/op2"
-        android:title="@string/mallaDeTurnos" />
-    <item
-        android:id="@+id/op3"
-        android:title="@string/verApartadoDeFotosyVideos" />
-    <item
-        android:id="@+id/op4"
-        android:title="@string/llamarCarabineros" />
-    <item
-        android:id="@+id/op5"
-        android:title="@string/ingresarMallaDeTurnos" />
-    <item
-        android:id="@+id/op6"
-        android:title="@string/registroDeIncidentes" />
-    <item
-        android:id="@+id/op7"
-        android:title="@string/registroDeVisitas" />
-    <item
-        android:id="@+id/opChat"
-        android:title="Chat"
-        tools:ignore="HardcodedText" />
-    <item
-        android:id="@+id/opPerfil"
-        android:title="@string/Perfil" />
-    <item
-        android:id="@+id/opTerminos"
-        android:title="Terminos" />
+    <menu xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/op2"
+            android:title="@string/mallaDeTurnos" />
+        <item
+            android:id="@+id/op3"
+            android:title="@string/verApartadoDeFotosyVideos" />
+        <item
+            android:id="@+id/op4"
+            android:title="@string/llamarCarabineros" />
+        <item
+            android:id="@+id/op5"
+            android:title="@string/ingresarMallaDeTurnos" />
+        <item
+            android:id="@+id/op6"
+            android:title="@string/registroDeIncidentes" />
+        <item
+            android:id="@+id/op7"
+            android:title="@string/registroDeVisitas" />
+        <item
+            android:id="@+id/opChat"
+            android:title="Chat"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/opPerfil"
+            android:title="@string/Perfil" />
+        <item
+            android:id="@+id/opTerminos"
+            android:title="Terminos" />
 
-</menu>
+    </menu>

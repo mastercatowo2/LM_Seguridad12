@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
+import androidx.annotation.NonNull;
 import java.util.List;
 
 public class TurnoAdapter extends ArrayAdapter<Turno> {
@@ -15,8 +15,9 @@ public class TurnoAdapter extends ArrayAdapter<Turno> {
         super(context, 0, turnos);
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         Turno turno = getItem(position);
 
         if (convertView == null) {

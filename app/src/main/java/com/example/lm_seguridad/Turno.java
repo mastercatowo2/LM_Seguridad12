@@ -1,9 +1,9 @@
 package com.example.lm_seguridad;
 
 public class Turno {
-    private String nombre;
-    private String horario;
-    private boolean esDiaDeTrabajo;
+    private final String nombre;
+    private final String horario;
+    private final boolean esDiaDeTrabajo;
 
     public Turno(String nombre, String horario, boolean esDiaDeTrabajo) {
         this.nombre = nombre;

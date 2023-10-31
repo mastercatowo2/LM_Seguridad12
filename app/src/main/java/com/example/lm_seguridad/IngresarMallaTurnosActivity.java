@@ -1,13 +1,18 @@
 package com.example.lm_seguridad;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
 
 public class IngresarMallaTurnosActivity extends AppCompatActivity {
     private EditText nombreTurnoEditText;
@@ -54,9 +59,17 @@ public class IngresarMallaTurnosActivity extends AppCompatActivity {
         }
 
         // Guarda la malla de turnos en la base de datos bajo el nodo "mallas_turno" con el ID generado
-        mDatabase.child(mallaId).setValue(turno);
-
-        // Muestra un mensaje de éxito
-        Toast.makeText(this, "Malla de turnos guardada correctamente", Toast.LENGTH_SHORT).show();
+        mDatabase.child(mallaId).setValue(turno)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        // Operación completada con éxito
+                        Toast.makeText(this, "Malla de turnos guardada correctamente", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Error al guardar en la base de datos
+                        Toast.makeText(this, "Error al guardar la malla de turnos", Toast.LENGTH_SHORT).show();
+                        // Registra el mensaje de error en los logs
+                        Log.e("FirebaseError", Objects.requireNonNull(task.getException()).getMessage());
+                    }
+                });
     }
 }
