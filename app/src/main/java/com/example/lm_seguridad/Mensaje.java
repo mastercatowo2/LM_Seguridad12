@@ -3,14 +3,16 @@ package com.example.lm_seguridad;
 public class Mensaje {
     private String text;
     private String userId;
+    private long timestamp;
 
-    public Mensaje() {
+    public Mensaje(String messageText, String userId) {
         // Constructor vacío necesario para Firebase
     }
 
-    public Mensaje(String text, String userId) {
+    public Mensaje(String text, String userId, long timestamp) {
         this.text = text;
         this.userId = userId;
+        this.timestamp = timestamp;
     }
 
     public String getText() {
@@ -20,6 +22,8 @@ public class Mensaje {
     public String getUserId() {
         return userId;
     }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
 }
-
-

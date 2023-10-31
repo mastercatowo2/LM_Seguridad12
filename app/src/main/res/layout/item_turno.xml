@@ -1,3 +1,4 @@
+<!-- item_turno.xml -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -5,7 +6,7 @@
     android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/nombreTurno"
+        android:id="@+id/diaTurno"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
@@ -13,7 +14,7 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/horarioTurno"
+        android:id="@+id/estadoTurno"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"

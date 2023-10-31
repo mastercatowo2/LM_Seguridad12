@@ -1,25 +1,19 @@
 package com.example.lm_seguridad;
 
 public class Turno {
-    private final String nombre;
-    private final String horario;
-    private final boolean esDiaDeTrabajo;
+    private final String dia;
+    private final String estado;
 
-    public Turno(String nombre, String horario, boolean esDiaDeTrabajo) {
-        this.nombre = nombre;
-        this.horario = horario;
-        this.esDiaDeTrabajo = esDiaDeTrabajo;
+    public Turno(String dia, String estado) {
+        this.dia = dia;
+        this.estado = estado;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getDia() {
+        return dia;
     }
 
-    public String getHorario() {
-        return horario;
-    }
-
-    public boolean esDiaDeTrabajo() {
-        return esDiaDeTrabajo;
+    public String getEstado() {
+        return estado;
     }
 }

@@ -6,13 +6,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Objects;
 
 public class IngresarMallaTurnosActivity extends AppCompatActivity {
     private EditText nombreTurnoEditText;
@@ -47,29 +43,32 @@ public class IngresarMallaTurnosActivity extends AppCompatActivity {
         // Genera un ID único para la malla de turnos
         String mallaId = mDatabase.push().getKey();
 
-        // Verifica si el estado del turno es "Descanso"
-        boolean esDescanso = estadoTurno.equals("Descanso");
-
         // Crea un objeto Turno con los datos
-        Turno turno;
-        if (esDescanso) {
-            turno = new Turno("Descanso", "Descanso", false);
-        } else {
-            turno = new Turno(nombreTurno, dia, true);
-        }
+        Turno turno = new Turno(dia, estadoTurno);
 
-        // Guarda la malla de turnos en la base de datos bajo el nodo "mallas_turno" con el ID generado
-        mDatabase.child(mallaId).setValue(turno)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        // Operación completada con éxito
-                        Toast.makeText(this, "Malla de turnos guardada correctamente", Toast.LENGTH_SHORT).show();
-                    } else {
-                        // Error al guardar en la base de datos
-                        Toast.makeText(this, "Error al guardar la malla de turnos", Toast.LENGTH_SHORT).show();
-                        // Registra el mensaje de error en los logs
-                        Log.e("FirebaseError", Objects.requireNonNull(task.getException()).getMessage());
-                    }
-                });
+        // Verifica que mallaId no sea null antes de guardar en Firebase
+        if (mallaId != null) {
+            // Guarda la malla de turnos en la base de datos bajo el nodo "mallas_turno" con el ID generado
+            mDatabase.child(mallaId).setValue(turno)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            // Operación completada con éxito
+                            Toast.makeText(this, "Malla de turnos guardada correctamente", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // Error al guardar en la base de datos
+                            Toast.makeText(this, "Error al guardar la malla de turnos", Toast.LENGTH_SHORT).show();
+                            // Registra el mensaje de error en los logs
+                            if (task.getException() != null) {
+                                Log.e("FirebaseError", task.getException().getMessage());
+                            } else {
+                                Log.e("FirebaseError", "Unknown error occurred while saving data to Firebase");
+                            }
+                        }
+                    });
+        } else {
+            // Manejar el caso cuando mallaId es null
+            Log.e("FirebaseError", "mallaId es null. No se puede guardar la malla de turnos en Firebase.");
+            Toast.makeText(this, "Error al guardar la malla de turnos", Toast.LENGTH_SHORT).show();
+        }
     }
 }

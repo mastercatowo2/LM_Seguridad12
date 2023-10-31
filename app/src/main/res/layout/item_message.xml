@@ -1,8 +1,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="8dp">
+
+    <TextView
+        android:id="@+id/senderName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre del remitente"
+        android:textColor="#FF0000"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/messageText"
@@ -11,5 +21,15 @@
         android:background="@drawable/rounded_background"
         android:padding="8dp"
         android:text="Ejemplo de mensaje"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00/00/0000 00:00:00"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText" />
 </LinearLayout>

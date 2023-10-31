@@ -59,20 +59,20 @@ public class MallasDeTurnosActivity extends AppCompatActivity {
         // Aquí debes implementar la lógica para obtener las mallas de turnos desde tu fuente de datos.
         // Puedes reemplazar este código con la lógica real según tu aplicación.
         List<Turno> turnos = new ArrayList<>();
-        turnos.add(new Turno("Turno Lunes", "8:00 AM -\n 20:00 PM", true));
-        turnos.add(new Turno("Turno Martes", "8:00 AM -\n 20:00 PM", true));
-        turnos.add(new Turno("Turno Miércoles", "8:00 AM -\n 20:00 PM", true));
-        turnos.add(new Turno("Turno Jueves", "8:00 AM -\n 20:00 PM", true));
-        turnos.add(new Turno("Turno Viernes", "8:00 AM -\n 20:00 PM", true));
-        turnos.add(new Turno("Turno Sábado", "8:00 AM -\n 20:00 PM", true));
-        turnos.add(new Turno("Turno Domingo", "8:00 AM -\n 20:00 PM", true));
-        turnos.add(new Turno("Descanso", "Descanso", false));
-        turnos.add(new Turno("Descanso", "Descanso", false));
-        turnos.add(new Turno("Descanso", "Descanso", false));
-        turnos.add(new Turno("Descanso", "Descanso", false));
-        turnos.add(new Turno("Descanso", "Descanso", false));
-        turnos.add(new Turno("Descanso", "Descanso", false));
-        turnos.add(new Turno("Descanso", "Descanso", false));
+        turnos.add(new Turno("Turno Lunes", "8:00 AM -\n 20:00 PM"));
+        turnos.add(new Turno("Turno Martes", "8:00 AM -\n 20:00 PM"));
+        turnos.add(new Turno("Turno Miércoles", "8:00 AM -\n 20:00 PM"));
+        turnos.add(new Turno("Turno Jueves", "8:00 AM -\n 20:00 PM"));
+        turnos.add(new Turno("Turno Viernes", "8:00 AM -\n 20:00 PM"));
+        turnos.add(new Turno("Turno Sábado", "8:00 AM -\n 20:00 PM"));
+        turnos.add(new Turno("Turno Domingo", "8:00 AM -\n 20:00 PM"));
+        turnos.add(new Turno("Descanso", "Descanso"));
+        turnos.add(new Turno("Descanso", "Descanso"));
+        turnos.add(new Turno("Descanso", "Descanso"));
+        turnos.add(new Turno("Descanso", "Descanso"));
+        turnos.add(new Turno("Descanso", "Descanso"));
+        turnos.add(new Turno("Descanso", "Descanso"));
+        turnos.add(new Turno("Descanso", "Descanso"));
 
         return turnos;
     }

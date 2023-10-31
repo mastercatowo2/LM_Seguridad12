@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,7 +21,8 @@
         android:layout_marginEnd="8dp"
         android:layout_toStartOf="@+id/sendButton"
         android:hint="Escribe tu mensaje"
-        android:padding="8dp" />
+        android:padding="8dp"
+        tools:ignore="Autofill,HardcodedText" />
 
     <!-- Botón para enviar mensajes -->
     <Button
@@ -31,5 +31,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:text="Enviar" />
+        android:text="Enviar"
+        tools:ignore="HardcodedText" />
 </RelativeLayout>

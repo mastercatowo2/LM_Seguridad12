@@ -82,4 +82,3 @@
         android:layout_gravity="start"
         app:menu="@menu/menu1" />
 </androidx.drawerlayout.widget.DrawerLayout>
-

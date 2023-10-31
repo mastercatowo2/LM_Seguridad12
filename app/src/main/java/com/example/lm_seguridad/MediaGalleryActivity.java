@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+
 public class MediaGalleryActivity extends AppCompatActivity {
     private GridView mediaGridView;
     private MediaAdapter mediaAdapter;
