@@ -1,4 +1,3 @@
-
 package com.example.lm_seguridad;
 
 import android.content.Intent;

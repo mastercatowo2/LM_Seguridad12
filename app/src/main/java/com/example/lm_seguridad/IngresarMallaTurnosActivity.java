@@ -42,8 +42,16 @@ public class IngresarMallaTurnosActivity extends AppCompatActivity {
         // Genera un ID único para la malla de turnos
         String mallaId = mDatabase.push().getKey();
 
+        // Verifica si el estado del turno es "Descanso"
+        boolean esDescanso = estadoTurno.equals("Descanso");
+
         // Crea un objeto Turno con los datos
-        Turno turno = new Turno(nombreTurno, dia, estadoTurno.equals("Turno"));
+        Turno turno;
+        if (esDescanso) {
+            turno = new Turno("Descanso", "Descanso", false);
+        } else {
+            turno = new Turno(nombreTurno, dia, true);
+        }
 
         // Guarda la malla de turnos en la base de datos bajo el nodo "mallas_turno" con el ID generado
         mDatabase.child(mallaId).setValue(turno);
