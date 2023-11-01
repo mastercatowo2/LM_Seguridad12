@@ -42,7 +42,7 @@
         <activity
             android:name=".Perfil1"
             android:exported="false" />
-
+        <activity android:name=".LlamarCarabineros" />
         <activity
             android:name=".Inicio"
             android:exported="false" />

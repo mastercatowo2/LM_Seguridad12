@@ -56,6 +56,9 @@ public class Inicio extends AppCompatActivity {
                 } else if (id == R.id.op3) {
                     Intent intent = new Intent(Inicio.this, MediaGalleryActivity.class);
                     startActivity(intent);
+                }else if (id == R.id.op4) {
+                    Intent intent = new Intent(Inicio.this, LlamarCarabineros.class);
+                    startActivity(intent);
                 } else if (id == R.id.op6) {
                     Intent intent = new Intent(Inicio.this, RegistroIncidentesActivity.class);
                     startActivity(intent);
@@ -93,78 +96,5 @@ public class Inicio extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.op4) { // Cambia a R.id.op4 que es el ítem para llamar a Carabineros
-            mostrarDialogoEmergencias();
-            return true;
-        } else {
-            // Resto del código para manejar otros elementos del menú
-            // ...
-        }
-        return super.onOptionsItemSelected(item);
+
     }
-
-    public void mostrarDialogoEmergencias() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View dialogView = getLayoutInflater().inflate(R.layout.dialog_confirm, null);
-        builder.setView(dialogView);
-        final AlertDialog dialog = builder.create();
-
-        dialogView.findViewById(R.id.btnSi).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                realizarLlamadaCarabineros();
-            }
-        });
-
-        dialogView.findViewById(R.id.btnNo).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                Toast.makeText(Inicio.this, "Llamada cancelada", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        dialog.show();
-    }
-
-    @SuppressLint("QueryPermissionsNeeded")
-    private void realizarLlamadaCarabineros() {
-        String numeroCarabineros = "+56938726189";
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
-            Log.d("LlamadaCarabineros", "Permiso de llamada concedido. Iniciando llamada...");
-
-            Intent intent = new Intent(Intent.ACTION_CALL);
-            intent.setData(Uri.parse("tel:" + numeroCarabineros));
-
-            if (intent.resolveActivity(getPackageManager()) != null) {
-                Log.d("LlamadaCarabineros", "Intent válido. Iniciando llamada...");
-                startActivity(intent);
-            } else {
-                Log.e("LlamadaCarabineros", "No se puede realizar la llamada. Aplicación no compatible.");
-                Toast.makeText(this, "No se puede realizar la llamada", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            Log.e("LlamadaCarabineros", "Permiso de llamada denegado. Solicitando permiso...");
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL_PHONE_PERMISSION);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == REQUEST_CALL_PHONE_PERMISSION) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                realizarLlamadaCarabineros();
-            } else {
-                Log.e("LlamadaCarabineros", "Permiso de llamada denegado por el usuario.");
-                Toast.makeText(this, "Permiso de llamada denegado", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-}
