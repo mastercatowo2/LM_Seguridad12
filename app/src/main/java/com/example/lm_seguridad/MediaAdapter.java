@@ -43,10 +43,8 @@ public class MediaAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        // Obtiene la referencia de Firebase Storage para la posición actual
         StorageReference storageReference = storageReferences.get(position);
 
-        // Carga la imagen usando Glide
         Glide.with(context)
                 .load(storageReference)
                 .into(imageView);

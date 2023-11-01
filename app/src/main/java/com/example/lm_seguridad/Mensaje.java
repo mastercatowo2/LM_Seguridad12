@@ -6,7 +6,6 @@ public class Mensaje {
     private long timestamp;
 
     public Mensaje(String messageText, String userId) {
-        // Constructor vacío necesario para Firebase
     }
 
     public Mensaje(String text, String userId, long timestamp) {

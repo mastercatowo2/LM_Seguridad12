@@ -28,10 +28,8 @@ public class LlamarCarabineros extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (ContextCompat.checkSelfPermission(LlamarCarabineros.this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    // Si el permiso no está otorgado, solicítalo al usuario.
                     ActivityCompat.requestPermissions(LlamarCarabineros.this, new String[]{android.Manifest.permission.CALL_PHONE}, REQUEST_CALL_PHONE_PERMISSION);
                 } else {
-                    // Si el permiso está otorgado, realiza la llamada.
                     realizarLlamadaCarabineros();
                 }
             }
@@ -59,18 +57,16 @@ public class LlamarCarabineros extends AppCompatActivity {
         finish();
     }
 
-    // Este método maneja el resultado de la solicitud de permisos.
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode == REQUEST_CALL_PHONE_PERMISSION) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Si el permiso fue otorgado, realiza la llamada.
                 realizarLlamadaCarabineros();
             } else {
-                // Si el permiso fue denegado, muestra un mensaje al usuario.
-                // Puedes manejar este caso según tus necesidades.
+
             }
         }
     }

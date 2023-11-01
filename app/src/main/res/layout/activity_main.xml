@@ -8,7 +8,6 @@
     tools:context=".MainActivity"
     tools:ignore="ExtraText">
 
-    <!-- Configuración para aceptar solo números y mostrar asteriscos -->
     <EditText
         android:id="@+id/contrasena"
         android:layout_width="0dp"

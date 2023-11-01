@@ -35,11 +35,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // La autenticación fue exitosa, inicia la actividad Inicio
                             Intent intent = new Intent(MainActivity.this, Inicio.class);
                             startActivity(intent);
                         } else {
-                            // La autenticación falló, muestra un mensaje de error
                             Toast.makeText(MainActivity.this, "Error en las credenciales", Toast.LENGTH_SHORT).show();
                         }
                     }

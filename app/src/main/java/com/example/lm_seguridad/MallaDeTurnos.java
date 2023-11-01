@@ -6,7 +6,6 @@ public class MallaDeTurnos {
     private String estado;
 
     public MallaDeTurnos() {
-        // Constructor vacío requerido por Firestore.
     }
 
     public MallaDeTurnos(String nombre, String horario, String estado) {

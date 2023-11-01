@@ -39,11 +39,9 @@ public class Perfil1 extends AppCompatActivity {
         ivFoto = findViewById(R.id.ivFoto);
         storageReference = FirebaseStorage.getInstance().getReference();
 
-        // Cargar la imagen del SharedPreferences al ImageView
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         String imageUrl = prefs.getString(PROFILE_IMAGE_URL_KEY, null);
         if (imageUrl != null) {
-            // Cargar y mostrar la imagen en el ImageView con Glide
             RequestOptions requestOptions = new RequestOptions()
                     .diskCacheStrategy(DiskCacheStrategy.ALL);
 
@@ -92,7 +90,6 @@ public class Perfil1 extends AppCompatActivity {
                                     .addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
-                                            // Cargar y mostrar la imagen en el ImageView con Glide
                                             RequestOptions requestOptions = new RequestOptions()
                                                     .diskCacheStrategy(DiskCacheStrategy.ALL);
 
@@ -101,7 +98,6 @@ public class Perfil1 extends AppCompatActivity {
                                                     .apply(requestOptions)
                                                     .into(ivFoto);
 
-                                            // Guardar la URL de la imagen en SharedPreferences
                                             SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
                                             editor.putString(PROFILE_IMAGE_URL_KEY, uri.toString());
                                             editor.apply();

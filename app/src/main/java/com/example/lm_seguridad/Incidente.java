@@ -5,7 +5,6 @@ public class Incidente {
     private String comentarios;
 
     public Incidente() {
-        // Constructor vacío requerido por Firebase
     }
 
     public Incidente(int magnitud, String comentarios) {

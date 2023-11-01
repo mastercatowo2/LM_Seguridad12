@@ -52,7 +52,6 @@ public class Chat extends AppCompatActivity {
             }
         });
 
-        // Agrega el ChildEventListener para escuchar los mensajes en el chat
         databaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String s) {
@@ -63,28 +62,23 @@ public class Chat extends AppCompatActivity {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    // Handle error
                 }
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, String previousChildName) {
-                // Handle child changed event if needed
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                // Handle child removed event if needed
             }
 
             @Override
             public void onChildMoved(@NonNull DataSnapshot snapshot, String previousChildName) {
-                // Handle child moved event if needed
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // Handle database error
             }
         });
     }

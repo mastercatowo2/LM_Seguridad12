@@ -1,4 +1,3 @@
-<!-- activity_media_gallery.xml -->
 <GridView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/mediaGridView"
     android:layout_width="match_parent"

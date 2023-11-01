@@ -6,7 +6,6 @@ public class Visita {
     private String userId;
 
     public Visita() {
-        // Constructor vacío requerido para Firestore
     }
 
     public Visita(String nombre, String rut, String userId) {
